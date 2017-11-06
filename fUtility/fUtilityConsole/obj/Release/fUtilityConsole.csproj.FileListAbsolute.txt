@@ -1,0 +1,8 @@
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\bin\Release\fUtilityConsole.exe.config
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\bin\Release\fUtilityConsole.exe
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\bin\Release\fUtilityConsole.pdb
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\bin\Release\fUtility.dll
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\bin\Release\fUtility.pdb
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\obj\Release\fUtilityConsole.csprojResolveAssemblyReference.cache
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\obj\Release\fUtilityConsole.exe
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\obj\Release\fUtilityConsole.pdb
