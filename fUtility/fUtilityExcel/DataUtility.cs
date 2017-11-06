@@ -11,13 +11,12 @@ namespace fUtilityExcel
 {
     public static class Constant
     {
-        public const string FunctionPrefix = "fUtility.";
+        public const string FunctionPrefix = "ft.";
     }
 
     public class DataTableFunctions
     {
-
-        [ExcelFunction(Name = Constant.FunctionPrefix + "DataTables.GetFields", IsVolatile = true)]
+        [ExcelFunction(Name = Constant.FunctionPrefix + "DataTable.GetFields", IsVolatile = true)]
         public static object[,] fUtilityDataTablesGetFields(string handle)
         {
             var table = ObjectMapInterface.GetFromMap<DataTable>(handle);
@@ -29,14 +28,14 @@ namespace fUtilityExcel
             return output;
         }
 
-        [ExcelFunction(Name = Constant.FunctionPrefix + "DataTables.GetColumnCount", IsVolatile = true)]
+        [ExcelFunction(Name = Constant.FunctionPrefix + "DataTable.GetColumnCount", IsVolatile = true)]
         public static int fUtilityDataTablesGetColumnCount(string handle)
         {
             var table = ObjectMapInterface.GetFromMap<DataTable>(handle);
             return table.Columns.Count;
         }
 
-        [ExcelFunction(Name = Constant.FunctionPrefix + "DataTables.GetRowCount", IsVolatile = true)]
+        [ExcelFunction(Name = Constant.FunctionPrefix + "DataTable.GetRowCount", IsVolatile = true)]
         public static int fUtilityDataTablesGetRowCount(string handle)
         {
             var table = ObjectMapInterface.GetFromMap<DataTable>(handle);
@@ -49,17 +48,18 @@ namespace fUtilityExcel
             return ParsingFunctionality.ReadSqlFromArray(array);
         }
 
-        [ExcelFunction(Name = Constant.FunctionPrefix + "PutDataTable", IsVolatile = true)]
+        [ExcelFunction(Name = Constant.FunctionPrefix + "DataTable.Put", IsVolatile = true)]
         public static string fUtilityPutDataTable(string handle, object[,] data)
         {
             ObjectMapInterface.AddToMap(handle, ExcelFriendlyConversion.ConvertObjectArrayToDataTable(handle, data));
             return handle;
         }
 
-        [ExcelFunction(Name = Constant.FunctionPrefix + "QueryDataTable", IsVolatile = true)]
-        public static object[,] fUtilityQueryDataTable(string sql, string csvPath)
+        [ExcelFunction(Name = Constant.FunctionPrefix + "DataTable.Query", IsVolatile = true)]
+        public static object[,] fUtilityQueryDataTable(string sql, string csvPath, object noHeadersInput)
         {
             object[,] output;
+            bool noHeaders = Optional.Check(noHeadersInput, false);
             var tableHandle = ParsingFunctionality.GetTableNameFromSqlQuery(sql);
 
             if (ObjectMap.Map.Keys.Contains(tableHandle) == false)
@@ -73,12 +73,12 @@ namespace fUtilityExcel
             {
                 var table = ObjectMapInterface.GetFromMap<DataTable>(tableHandle);
                 var newTable = QueryCSV.QueryDataTable(table, sql, csvPath);
-                output = ExcelFriendlyConversion.ConvertDataTableToObjectArray(newTable);
+                output = ExcelFriendlyConversion.ConvertDataTableToObjectArray(newTable, noHeaders);
                 return output;
             }
         }
 
-        [ExcelFunction(Name = Constant.FunctionPrefix + "QueryDataTableAndStore", IsVolatile = true)]
+        [ExcelFunction(Name = Constant.FunctionPrefix + "DataTable.QueryAndStore", IsVolatile = true)]
         public static string fUtilityQueryDataTable(string handle, string sql, string csvPath)
         {
             var tableHandle = ParsingFunctionality.GetTableNameFromSqlQuery(sql);
@@ -95,21 +95,23 @@ namespace fUtilityExcel
             }
         }
 
-        [ExcelFunction(Name = Constant.FunctionPrefix + "QueryDataTables", IsVolatile = true)]
-        public static object[,] fUtilityQueryDataTables(string handle, string sql, string csvPath, object[] tableHandles)
+        [ExcelFunction(Name = Constant.FunctionPrefix + "DataTable.QueryMultiple", IsVolatile = true)]
+        public static object[,] fUtilityQueryDataTables(string handle, string sql, string csvPath, object[] tableHandles, object noHeadersInput)
         {
             List<DataTable> tables = new List<DataTable>();
+
+            bool noHeaders = Optional.Check(noHeadersInput, false);
 
             for (int i = 0; i < tableHandles.Length; i++)
                 tables.Add(ObjectMapInterface.GetFromMap<DataTable>(tableHandles[i].ToString()));
 
             var newTable = QueryCSV.QueryDataTable(tables, sql, csvPath);
             newTable.TableName = handle;
-            var output = ExcelFriendlyConversion.ConvertDataTableToObjectArray(newTable);
+            var output = ExcelFriendlyConversion.ConvertDataTableToObjectArray(newTable, false);
             return output;
         }
 
-        [ExcelFunction(Name = Constant.FunctionPrefix + "QueryDataTablesAndStore", IsVolatile = true)]
+        [ExcelFunction(Name = Constant.FunctionPrefix + "DataTable.QueryMultipleAndStore", IsVolatile = true)]
         public static string fUtilityQueryDataTablesAndStore(string handle, string sql, string csvPath, object[] tableHandles)
         {
             List<DataTable> tables = new List<DataTable>();
@@ -122,20 +124,22 @@ namespace fUtilityExcel
             return handle;
         }
 
-
-        [ExcelFunction(Name = Constant.FunctionPrefix + "GetDataTable", IsVolatile = true)]
-        public static object[,] fUtilityGetDataTable(string handle)
+        [ExcelFunction(Name = Constant.FunctionPrefix + "DataTable.Get", IsVolatile = true)]
+        public static object[,] fUtilityGetDataTable(string handle, object noHeadersInput)
         {
+
+            bool noHeaders = Optional.Check(noHeadersInput, false);
+
             if (ExcelDnaUtil.IsInFunctionWizard())
                 return new object[0, 0];
             else
             {
                 var output = ObjectMapInterface.GetFromMap<DataTable>(handle);
-                return ExcelFriendlyConversion.ConvertDataTableToObjectArray(output);
+                return ExcelFriendlyConversion.ConvertDataTableToObjectArray(output,noHeaders);
             }
         }
 
-        [ExcelFunction(Name = Constant.FunctionPrefix + "Database.PutDataTableFromSQL", IsVolatile = true)]
+        [ExcelFunction(Name = Constant.FunctionPrefix + "DataTable.PutFromSQL", IsVolatile = true)]
         public static string fUtilityDataBasePutDataTableFromSQL(string handle, string connectionString, string sql)
         {
             if (ExcelDnaUtil.IsInFunctionWizard())
@@ -148,13 +152,13 @@ namespace fUtilityExcel
 
     public class ObjectInfo
     {
-        [ExcelFunction(Name = Constant.FunctionPrefix + "ListMemoryMap", IsVolatile = true)]
+        [ExcelFunction(Name = Constant.FunctionPrefix + "Objects.ListMemoryMap", IsVolatile = true)]
         public static object[,] fUtilityListMemoryMap()
         {
             var keyCount = ObjectMap.Map.Keys.Count;
             object[,] output = new object[keyCount+1, 3];
 
-            output[0, 0] = "KEY #";
+            output[0, 0] = "#";
             output[0, 1] = "HANDLE";
             output[0, 2] = "TYPE";
 
@@ -172,10 +176,39 @@ namespace fUtilityExcel
         }
     }
 
-
     public class DataUtility
     {
-        [ExcelFunction(Name = Constant.FunctionPrefix + "GetDistinctValue", IsVolatile = true)]
+        [ExcelFunction(Name = Constant.FunctionPrefix + "Table.SortByHeader")]
+        public static object[,] fUtilityTableSortByHeader(object[,] table, object[] headers, object SortAscending, object noHeadersInput)
+        {
+            bool ascending = Optional.Check(SortAscending, true);
+            bool noHeaders = Optional.Check(noHeadersInput, false);
+
+            var dataTable = ExcelFriendlyConversion.ConvertObjectArrayToDataTable("TEMPTABLE", table);
+            var header = "";
+
+            for (int i = 0; i < headers.Length-1; i ++)
+                header = headers[i].ToString() + ", " + header;
+
+            header = header + headers[headers.Length - 1];
+
+            var direction = (ascending) ? "ASC" : "DESC";
+
+            dataTable.DefaultView.Sort = header + " " + direction;
+
+            return ExcelFriendlyConversion.ConvertDataTableToObjectArray(dataTable.DefaultView.ToTable());
+        }
+
+        [ExcelFunction(Name = Constant.FunctionPrefix + "DataTable.SortAndGet")]
+        public static object[,] fUtilityDataTableSortAndGet(string handle, object[] headers, object SortAscending, object noHeadersInput)
+        {
+            var table = ObjectMapInterface.GetFromMap<DataTable>(handle);
+            var output = ExcelFriendlyConversion.ConvertDataTableToObjectArray(table);
+            return fUtilityTableSortByHeader(output, headers, SortAscending, noHeadersInput);
+        }
+
+
+        [ExcelFunction(Name = Constant.FunctionPrefix + "Array.GetDistinctValue", IsVolatile = true)]
         public static object[,] fUtilityGetDistinctValues(object[] array)
         {
             var list = array.ToList<object>();
@@ -183,7 +216,7 @@ namespace fUtilityExcel
             return ExcelFriendlyConversion.ArrayToVerticalObject(list.Distinct().ToArray());
         }
 
-        [ExcelFunction(Name = Constant.FunctionPrefix + "RemoveEmptyEntries", IsVolatile = true)]
+        [ExcelFunction(Name = Constant.FunctionPrefix + "Array.RemoveEmptyEntries", IsVolatile = true)]
         public static object[,] fUtilityRemoveEmptyEntries(object[] array)
          {
                 List<object> output = new List<object>();
@@ -197,7 +230,21 @@ namespace fUtilityExcel
             return ExcelFriendlyConversion.ArrayToVerticalObject(output.ToArray());
         }
 
-        [ExcelFunction(Name = Constant.FunctionPrefix + "GetIntersection", IsVolatile = true)]
+        [ExcelFunction(Name = Constant.FunctionPrefix + "Array.IgnoreNA", IsVolatile = true)]
+        public static object[,] fUtilityArrayIgnoreNA(object[] array)
+        {
+            List<object> output = new List<object>();
+
+            foreach (object entry in array)
+            {
+                if (entry is ExcelDna.Integration.ExcelError == false)
+                    output.Add(entry);
+            }
+
+            return ExcelFriendlyConversion.ArrayToVerticalObject(output.ToArray());
+        }
+
+        [ExcelFunction(Name = Constant.FunctionPrefix + "Array.GetIntersection", IsVolatile = true)]
         public static object[,] fUtilityGetIntersection(object[] array1, object[] array2)
         {
             var list1 = array1.ToList();
@@ -223,6 +270,40 @@ namespace fUtilityExcel
             return ExcelFriendlyConversion.ArrayToVerticalObject(joined.SelectMany(a => Enumerable.Repeat(a.Key, a.Count)).ToArray());
 
         }
-        
-    }   
+    }
+
+    internal static class Optional
+    {
+        internal static bool Check(object arg, bool defaultValue)
+        {
+            if (arg is bool)
+                return (bool)arg;
+            else if (arg is ExcelMissing)
+                return defaultValue;
+            else
+                throw new ArgumentException();
+
+            // Perhaps check for other types and do whatever you think is right ....
+            //else if (arg is double)
+            //    return "Double: " + (double)arg;
+            //else if (arg is bool)
+            //    return "Boolean: " + (bool)arg;
+            //else if (arg is ExcelError)
+            //    return "ExcelError: " + arg.ToString();
+            //else if (arg is object[,])
+            //    // The object array returned here may contain a mixture of types,
+            //    // reflecting the different cell contents.
+            //    return string.Format("Array[{0},{1}]", 
+            //      ((object[,])arg).GetLength(0), ((object[,])arg).GetLength(1));
+            //else if (arg is ExcelEmpty)
+            //    return "<<Empty>>"; // Would have been null
+            //else if (arg is ExcelReference)
+            //  // Calling xlfRefText here requires IsMacroType=true for this function.
+            //				return "Reference: " + 
+            //                     XlCall.Excel(XlCall.xlfReftext, arg, true);
+            //			else
+            //				return "!? Unheard Of ?!";
+        }
+
+    }
 }

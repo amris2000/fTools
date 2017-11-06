@@ -3,4 +3,3 @@ C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\bin\Debug\fUtility.pdb
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\obj\Debug\fUtility.csproj.ResolveComReference.cache
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\obj\Debug\fUtility.dll
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\obj\Debug\fUtility.pdb
-C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\obj\Debug\fUtility.csprojResolveAssemblyReference.cache

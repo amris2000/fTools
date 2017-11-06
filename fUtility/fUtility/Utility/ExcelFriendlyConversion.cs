@@ -24,27 +24,47 @@ namespace fUtility
             return ArrayToVerticalObject(array.ToArray());
         }
 
-        public static object[,] ConvertDataTableToObjectArray(DataTable table)
+        public static object[,] ConvertDataTableToObjectArray(DataTable table, bool noHeaders = false)
         {
             var rows = table.Rows.Count;
             var cols = table.Columns.Count;
-            var output = new object[rows + 1, cols];
+            object[,] output;
 
-            // Fields
-            for (int i = 0; i < cols; i++)
-                output[0, i] = table.Columns[i].ColumnName;
+            if (noHeaders)
+                output = new object[rows, cols];
+            else
+                output = new object[rows + 1, cols];
 
-            // Values
-            for (int i = 0; i < cols; i ++)
+            if (noHeaders)
             {
-                for (int j = 1; j < rows+1; j++)
+                for (int i = 0; i < cols; i++)
                 {
-                    if (table.Rows[j - 1][i] == DBNull.Value)
-                        output[j, i] = "";
-                    else
-                        output[j, i] = table.Rows[j-1][i];
+                    for (int j = 0; j < rows; j++)
+                    {
+                        if (table.Rows[j][i] == DBNull.Value)
+                            output[j, i] = "";
+                        else
+                            output[j, i] = table.Rows[j][i];
+                    }
                 }
             }
+            else
+            {
+                for (int i = 0; i < cols; i++)
+                    output[0, i] = table.Columns[i].ColumnName;
+
+                for (int i = 0; i < cols; i++)
+                {
+                    for (int j = 1; j < rows + 1; j++)
+                    {
+                        if (table.Rows[j - 1][i] == DBNull.Value)
+                            output[j, i] = "";
+                        else
+                            output[j, i] = table.Rows[j - 1][i];
+                    }
+                }
+            }
+
 
             return output;
         }
