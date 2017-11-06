@@ -5,4 +5,14 @@
     <StartProgram>C:\Program Files\Microsoft Office 15\Root\Office15\EXCEL.EXE</StartProgram>
     <StartArguments>"fUtilityExcel-AddIn.xll"</StartArguments>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <StartProgram>C:\Program Files\Microsoft Office 15\Root\Office15\EXCEL.EXE</StartProgram>
+    <StartArguments>"fUtilityExcel-AddIn.xll"</StartArguments>
+    <StartAction>Program</StartAction>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <StartProgram>C:\Program Files\Microsoft Office 15\Root\Office15\EXCEL.EXE</StartProgram>
+    <StartArguments>"fUtilityExcel-AddIn.xll"</StartArguments>
+    <StartAction>Program</StartAction>
+  </PropertyGroup>
 </Project>

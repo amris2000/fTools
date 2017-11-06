@@ -1,0 +1,5 @@
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\bin\x86\Debug\fUtility.dll
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\bin\x86\Debug\fUtility.pdb
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\obj\x86\Debug\fUtility.csproj.ResolveComReference.cache
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\obj\x86\Debug\fUtility.dll
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\obj\x86\Debug\fUtility.pdb
