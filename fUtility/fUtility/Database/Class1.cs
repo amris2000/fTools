@@ -8,20 +8,6 @@ using ADODB;
 
 namespace fUtility
 {
-    public class Class1
-    {
-        private ADODB.Connection _connection;
-        private ADODB.Recordset _recordSet;
-
-        public Class1()
-        {
-            _recordSet = new ADODB.Recordset();
-            var array = new int[] { 1, 2, 3, 4 };
-            var headers = new string[] { "H1", "H2", "H3", "H4" };
-            
-        }
-    }
-
     public static class DataTableTest
     {
         public static DataTable TestTable()
