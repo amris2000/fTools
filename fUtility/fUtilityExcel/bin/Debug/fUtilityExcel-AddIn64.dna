@@ -1,6 +1,6 @@
-<DnaLibrary Name="fUtilityExcel Add-In" RuntimeVersion="v4.0">
+<DnaLibrary Name="fTools" RuntimeVersion="v4.0">
   <ExternalLibrary Path="fUtilityExcel.dll" ExplicitExports="false" LoadFromBytes="true" Pack="true" />
-  
+  <Reference Path="fUtility.dll" LoadFromBytes="true" Pack="true" />
   <!-- 
        The RuntimeVersion attribute above allows two settings:
        * RuntimeVersion="v2.0" - for .NET 2.0, 3.0 and 3.5

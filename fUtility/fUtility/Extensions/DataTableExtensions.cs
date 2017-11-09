@@ -25,13 +25,16 @@ namespace fUtility
 
                 foreach (var column in dr.ItemArray)
                 {
-                    fileContent.Append("\"" + column.ToString() + "\",");
+                    byte[] bytes = Encoding.Default.GetBytes(column.ToString());
+                    Encoding encoding = Encoding.GetEncoding(1252);
+                    string output = encoding.GetString(bytes);
+                    fileContent.Append("\"" + encoding.GetString(bytes) + "\",");
                 }
 
                 fileContent.Replace(",", System.Environment.NewLine, fileContent.Length - 1, 1);
             }
 
-            System.IO.File.WriteAllText(filePath, fileContent.ToString());
+            System.IO.File.WriteAllText(filePath, fileContent.ToString(),Encoding.GetEncoding(1252));
 
         }
     }

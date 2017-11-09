@@ -11,7 +11,6 @@ namespace fUtility
     public static class QueryCSV
     {
 
-
         public static DataTable QueryCSVAndStoreAsDataTable(string sql)
         {
             string connectionString = @"Driver={Microsoft Text Driver (*.txt; *.csv)};Dbq=C:;Extensions=csv,txt";
@@ -25,30 +24,24 @@ namespace fUtility
             return dataTable;
         }
 
-        public static DataTable QueryDataTable(DataTable table, string sql, string folder)
+        public static DataTable QueryDataTable(string sql, string folder)
         {
-            string tableName = table.TableName;
-            string fullPath = folder + "\\" + tableName + ".CSV";
-            sql = sql.Replace(tableName, fullPath);
-
-            table.WriteToCsvFile(fullPath);
-            return QueryCSVAndStoreAsDataTable(sql);
+            string newSql = PersistentObjects.ParseSqlStringToCsvStringAndStoreTables(sql);
+            return QueryCSVAndStoreAsDataTable(newSql);
         }
 
-        public static DataTable QueryDataTable(List<DataTable> tables, string sql, string folder)
-        {
-            string[] tableNames = tables.Select(s => s.TableName).ToArray();
-            string[] fullPaths = tableNames.Select(s => folder + "\\" + s + ".CSV").ToArray();
+        //public static DataTable QueryDataTable(List<DataTable> tables, string sql, string folder)
+        //{
+        //    string[] tableNames = tables.Select(s => s.TableName).ToArray();
+        //    string[] fullPaths = tableNames.Select(s => folder + "\\" + s + ".CSV").ToArray();
 
-            for (int i = 0; i<tables.Count; i++)
-            {
-                tables[i].WriteToCsvFile(fullPaths[i]);
-                sql = sql.Replace(tableNames[i], fullPaths[i]);
-            }
+        //    for (int i = 0; i<tables.Count; i++)
+        //    {
+        //        tables[i].WriteToCsvFile(fullPaths[i]);
+        //        sql = sql.Replace(tableNames[i], fullPaths[i]);
+        //    }
 
-            return QueryCSVAndStoreAsDataTable(sql);
-
-
-        }
+        //    return QueryCSVAndStoreAsDataTable(sql);
+        //}
     }
 }
