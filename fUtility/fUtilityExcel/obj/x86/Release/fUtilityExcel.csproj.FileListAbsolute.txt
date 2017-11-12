@@ -1,7 +1,9 @@
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityExcel\bin\x86\Release\fUtilityExcel.dll
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityExcel\bin\x86\Release\fUtilityExcel.pdb
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityExcel\bin\x86\Release\fUtility.dll
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityExcel\bin\x86\Release\System.Data.SQLite.dll
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityExcel\bin\x86\Release\fUtility.pdb
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityExcel\bin\x86\Release\System.Data.SQLite.xml
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityExcel\obj\x86\Release\fUtilityExcel.csprojResolveAssemblyReference.cache
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityExcel\obj\x86\Release\fUtilityExcel.dll
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityExcel\obj\x86\Release\fUtilityExcel.pdb

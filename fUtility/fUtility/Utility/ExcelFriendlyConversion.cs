@@ -78,10 +78,14 @@ namespace fUtility
 
             var headers = new object[cols];
 
+            // Here we check the type of the first entry in the table. 
+            // Ideally should check if all values of table are the same, if not assume it's STRING
+            // .. but this could be slow...
+
             for (int i = 0; i < cols; i++)
             {
                 var column = new DataColumn();
-                column.DataType = System.Type.GetType(typeof(object).ToString());
+                column.DataType = System.Type.GetType(array[1,i].GetType().ToString());
                 column.ColumnName = array[0, i].ToString().ToUpper();
                 table.Columns.Add(column);
             }

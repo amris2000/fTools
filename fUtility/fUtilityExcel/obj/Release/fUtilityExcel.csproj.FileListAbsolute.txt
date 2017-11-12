@@ -1,7 +1,0 @@
-C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityExcel\bin\Release\fUtilityExcel.dll
-C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityExcel\bin\Release\fUtilityExcel.pdb
-C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityExcel\bin\Release\fUtility.dll
-C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityExcel\bin\Release\fUtility.pdb
-C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityExcel\obj\Release\fUtilityExcel.csprojResolveAssemblyReference.cache
-C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityExcel\obj\Release\fUtilityExcel.dll
-C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityExcel\obj\Release\fUtilityExcel.pdb

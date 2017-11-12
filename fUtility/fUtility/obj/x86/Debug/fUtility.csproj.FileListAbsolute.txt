@@ -1,5 +1,14 @@
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\bin\x86\Debug\fUtility.dll.config
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\bin\x86\Debug\fUtility.dll
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\bin\x86\Debug\fUtility.pdb
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\bin\x86\Debug\EntityFramework.dll
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\bin\x86\Debug\EntityFramework.SqlServer.dll
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\bin\x86\Debug\System.Data.SQLite.dll
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\bin\x86\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\bin\x86\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\bin\x86\Debug\EntityFramework.xml
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\bin\x86\Debug\EntityFramework.SqlServer.xml
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\bin\x86\Debug\System.Data.SQLite.xml
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\obj\x86\Debug\fUtility.csproj.ResolveComReference.cache
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\obj\x86\Debug\fUtility.dll
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\obj\x86\Debug\fUtility.pdb

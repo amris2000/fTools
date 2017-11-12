@@ -1,8 +1,16 @@
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\bin\x86\Release\fUtilityConsole.exe.config
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\bin\x86\Release\fUtilityConsole.exe
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\bin\x86\Release\fUtilityConsole.pdb
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\bin\x86\Release\EntityFramework.dll
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\bin\x86\Release\EntityFramework.SqlServer.dll
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\bin\x86\Release\fUtility.dll
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\bin\x86\Release\System.Data.SQLite.dll
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\bin\x86\Release\System.Data.SQLite.EF6.dll
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\bin\x86\Release\System.Data.SQLite.Linq.dll
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\bin\x86\Release\fUtility.pdb
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\bin\x86\Release\EntityFramework.xml
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\bin\x86\Release\EntityFramework.SqlServer.xml
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\bin\x86\Release\System.Data.SQLite.xml
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\obj\x86\Release\fUtilityConsole.csprojResolveAssemblyReference.cache
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\obj\x86\Release\fUtilityConsole.exe
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\obj\x86\Release\fUtilityConsole.pdb
