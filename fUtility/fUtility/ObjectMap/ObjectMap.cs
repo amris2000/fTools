@@ -20,11 +20,11 @@ namespace fUtility
             _csvPathIsSet = true;
         }
 
-        public static SQLiteDatabase MyDatabase;
+        //public static SQLiteDatabase MyDatabase;
 
         static PersistentObjects()
         {
-            MyDatabase = new SQLiteDatabase("FTDB");
+            //MyDatabase = new SQLiteDatabase("FTDB");
         }
 
 

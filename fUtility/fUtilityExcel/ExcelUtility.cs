@@ -24,12 +24,12 @@ namespace fUtilityExcel
             return CreateDataTableInfo(table);
         }
 
-        [ExcelFunction(Name = Constant.FunctionPrefix + "DataTable.GetInfoDb", IsVolatile = true)]
-        public static object[,] DataTableGetInfoDb(string handle)
-        {
-            var table = PersistentObjects.MyDatabase.GetDataTable(handle);
-            return CreateDataTableInfo(table);
-        }
+        //[ExcelFunction(Name = Constant.FunctionPrefix + "DataTable.GetInfoDb", IsVolatile = true)]
+        //public static object[,] DataTableGetInfoDb(string handle)
+        //{
+        //    var table = PersistentObjects.MyDatabase.GetDataTable(handle);
+        //    return CreateDataTableInfo(table);
+        //}
 
         public static object[,] CreateDataTableInfo(DataTable table)
         {

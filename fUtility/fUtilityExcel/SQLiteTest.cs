@@ -11,14 +11,14 @@ namespace fUtilityExcel
 {
     public class SQLiteTest
     {
-        [ExcelFunction(Name = Constant.FunctionPrefix + "SQL.DataTable.Put", IsVolatile = true)]
-        public static string fUtilityPutDataTable(string handle, object[,] data)
-        {
-            PersistentObjects.AssertReservedWordsTableName(handle);
-            var table = ExcelFriendlyConversion.ConvertObjectArrayToDataTable(handle, data);
-            PersistentObjects.MyDatabase.CreateTable(handle, table);
-            return handle;
-        }
+        //[ExcelFunction(Name = Constant.FunctionPrefix + "SQL.DataTable.Put", IsVolatile = true)]
+        //public static string fUtilityPutDataTable(string handle, object[,] data)
+        //{
+        //    PersistentObjects.AssertReservedWordsTableName(handle);
+        //    var table = ExcelFriendlyConversion.ConvertObjectArrayToDataTable(handle, data);
+        //    PersistentObjects.MyDatabase.CreateTable(handle, table);
+        //    return handle;
+        //}
 
         // NEEDS TO BE IMPLEMENTED ....
         [ExcelFunction(Name = Constant.FunctionPrefix + "SQL.DataTable.Query", IsVolatile = true)]
@@ -45,21 +45,21 @@ namespace fUtilityExcel
             }
         }
 
-        [ExcelFunction(Name = Constant.FunctionPrefix + "SQL.DataTable.PutFromSQL", IsVolatile = true)]
-        public static string fUtilityDataBasePutDataTableFromSQL(string handle, string connectionString, string sqlStringOrHandle)
-        {
-            PersistentObjects.AssertReservedWordsTableName(handle);
+        //[ExcelFunction(Name = Constant.FunctionPrefix + "SQL.DataTable.PutFromSQL", IsVolatile = true)]
+        //public static string fUtilityDataBasePutDataTableFromSQL(string handle, string connectionString, string sqlStringOrHandle)
+        //{
+        //    PersistentObjects.AssertReservedWordsTableName(handle);
 
-            string sql = ObjectInfo.DetermineIfSqlHandleOrSqlQuery(sqlStringOrHandle);
+        //    string sql = ObjectInfo.DetermineIfSqlHandleOrSqlQuery(sqlStringOrHandle);
 
-            if (ExcelDnaUtil.IsInFunctionWizard())
-                return "no wizard.";
-            var table = DatabaseFunctionality.GetDataTableFromSql(sql, connectionString);
+        //    if (ExcelDnaUtil.IsInFunctionWizard())
+        //        return "no wizard.";
+        //    var table = DatabaseFunctionality.GetDataTableFromSql(sql, connectionString);
 
-            table.TableName = handle;
-            PersistentObjects.MyDatabase.CreateTable(handle, table);
-            return handle;
-        }
+        //    table.TableName = handle;
+        //    PersistentObjects.MyDatabase.CreateTable(handle, table);
+        //    return handle;
+        //}
 
 
     }
