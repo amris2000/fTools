@@ -9,7 +9,9 @@ C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\bin\x86\Release\System.Data.SQ
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\bin\x86\Release\EntityFramework.xml
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\bin\x86\Release\EntityFramework.SqlServer.xml
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\bin\x86\Release\System.Data.SQLite.xml
-C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\obj\x86\Release\fUtility.csprojResolveAssemblyReference.cache
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\obj\x86\Release\fUtility.csproj.ResolveComReference.cache
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\obj\x86\Release\fUtility.dll
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\obj\x86\Release\fUtility.pdb
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\obj\x86\Release\fUtility.csprojResolveAssemblyReference.cache
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\bin\x86\Release\Newtonsoft.Json.dll
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\bin\x86\Release\Newtonsoft.Json.xml

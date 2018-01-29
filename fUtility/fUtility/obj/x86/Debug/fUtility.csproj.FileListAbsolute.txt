@@ -13,3 +13,5 @@ C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\obj\x86\Debug\fUtility.csproj.
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\obj\x86\Debug\fUtility.dll
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\obj\x86\Debug\fUtility.pdb
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\obj\x86\Debug\fUtility.csprojResolveAssemblyReference.cache
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\bin\x86\Debug\Newtonsoft.Json.dll
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtility\bin\x86\Debug\Newtonsoft.Json.xml

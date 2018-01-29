@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ExcelDna.Integration;
 using System.Data;
 using fUtility;
+using System.Globalization;
 
 namespace fUtilityExcel
 {
@@ -13,6 +14,92 @@ namespace fUtilityExcel
     {
         public const string DATATABLE_FIELD = "DATATABLE";
         public const string SQL_FIELD = "SQL";
+    }
+
+    public class Finance
+    {
+        [ExcelFunction(Name = Constant.FunctionPrefix + "Finance.GetFx", IsVolatile = true)]
+        public static double FinanceGetFx(string baseCcy, string varCcy)
+        {
+            if (ExcelDnaUtil.IsInFunctionWizard())
+            {
+                return 0.0;
+            }
+            else
+            {
+                var fx = fUtility.CoinMarketCapApi.GetJson.GetFxRate(baseCcy, varCcy);
+                return fx.FxRate;
+            }
+
+        }
+
+        [ExcelFunction(Name = Constant.FunctionPrefix + "Finance.GetCrypto", IsVolatile = true)]
+        public static double FinanceGetCrypto(string crypto, object currencyInput)
+        {
+            if (ExcelDnaUtil.IsInFunctionWizard())
+                return 0.0;
+            else
+            {
+                string currency = CheckCurrencyInput(currencyInput);
+                return fUtility.CoinMarketCapApi.GetJson.GetCryptoRate(crypto, currency);
+            }
+        }
+
+        public static string CheckCurrencyInput(object currencyInput)
+        {
+            bool noCurrency = Optional.Check(currencyInput, true);
+            string currency;
+
+            if (noCurrency)
+                currency = "EUR";
+            else
+                currency = currencyInput.ToString();
+
+            return currency;
+        }
+
+        [ExcelFunction(Name = Constant.FunctionPrefix + "Finance.GetCryptoCross", IsVolatile = true)]
+        public static double FinanceGetCryptoCross(string cryptoBase, string cryptoVariable)
+        {
+            return fUtility.CoinMarketCapApi.GetJson.GetCryptoCross(cryptoBase, cryptoVariable);
+        }
+
+
+
+
+        [ExcelFunction(Name = Constant.FunctionPrefix + "Finance.GetCryptoInfo", IsVolatile = true)]
+        public static object[] FinanceGetCryptoInfo(string crypto, object currencyInput)
+        {
+            if (ExcelDnaUtil.IsInFunctionWizard())
+                return new object[1] { 0.0 };
+            else
+            {
+                string currency = CheckCurrencyInput(currencyInput);
+                var coin = fUtility.CoinMarketCapApi.GetJson.GetCoinInfoFromSource(crypto, currency);
+                List<object> results = new List<object>();
+
+
+                double price, change1h, change24h, change7d, supply, rank;
+
+                price = fUtility.CoinMarketCapApi.GetJson.TryConvertDouble(coin[0].price_eur);
+                double.TryParse(coin[0].percent_change_1h, NumberStyles.Any, CultureInfo.InvariantCulture, out change1h);
+                double.TryParse(coin[0].percent_change_24h, NumberStyles.Any, CultureInfo.InvariantCulture, out change24h);
+                double.TryParse(coin[0].percent_change_7d, NumberStyles.Any, CultureInfo.InvariantCulture, out change7d);
+                double.TryParse(coin[0].available_supply, NumberStyles.Any, CultureInfo.InvariantCulture, out supply);
+                double.TryParse(coin[0].rank, NumberStyles.Any, CultureInfo.InvariantCulture, out rank);
+
+                results.Add(coin[0].symbol);
+                results.Add(price);
+                results.Add(change1h);
+                results.Add(change24h);
+                results.Add(change7d);
+                results.Add(supply);
+                results.Add(rank);
+
+                return results.ToArray();
+            }
+        }
+
     }
 
     public class ExcelUtility

@@ -14,3 +14,5 @@ C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\bin\x86\Release\System.
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\obj\x86\Release\fUtilityConsole.csprojResolveAssemblyReference.cache
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\obj\x86\Release\fUtilityConsole.exe
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\obj\x86\Release\fUtilityConsole.pdb
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\bin\x86\Release\Newtonsoft.Json.dll
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityConsole\bin\x86\Release\Newtonsoft.Json.xml

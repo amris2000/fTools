@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using fUtility;
+using fUtility.CoinMarketCapApi;
 using System.Data;
 
 namespace fUtilityConsole
@@ -79,17 +80,33 @@ namespace fUtilityConsole
             Console.WriteLine("Database created ..");
         }
 
+        static void TestCoinAndFxApi()
+        {
+            var fx = GetJson.GetFxRate("EUR", "USD");
+            fx.Print();
+
+            var results = fUtility.CoinMarketCapApi.GetJson.GetCoinInfoFromSource("ethereum", "EUR");
+            Console.WriteLine("{0} {1} {2}", results[0].symbol, results[0].name, results[0].price_eur);
+            results = fUtility.CoinMarketCapApi.GetJson.GetCoinInfoFromSource("litecoin", "EUR");
+            Console.WriteLine("{0} {1} {2}", results[0].symbol, results[0].name, results[0].price_eur);
+
+            results = fUtility.CoinMarketCapApi.GetJson.GetCoinInfoFromSource("bitcoin", "EUR");
+            Console.WriteLine("{0} {1} {2}", results[0].symbol, results[0].name, results[0].price_eur);
+
+            results = fUtility.CoinMarketCapApi.GetJson.GetCoinInfoFromSource("ripple", "EUR");
+            Console.WriteLine("{0} {1} {2}", results[0].symbol, results[0].name, results[0].price_eur);
+
+            Console.WriteLine("");
+
+            Console.WriteLine("Cross Rates");
+            Console.WriteLine("{0}/{1}: {2}", "ripple", "ethereum", fUtility.CoinMarketCapApi.GetJson.GetCryptoCross("ripple", "ethereum"));
+        }
+
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Start");
-            string query = "SELECT NAME, INCOME FROM MYTABLENAME WHERE SOMETHING HAPPENS";
-            Console.WriteLine(ParsingFunctionality.GetTableNameFromSqlQuery(query));
+            TestCoinAndFxApi();
 
-            TestSQLite();
-
-
-            Console.WriteLine("DataTables");
             Console.ReadLine();
 
         }

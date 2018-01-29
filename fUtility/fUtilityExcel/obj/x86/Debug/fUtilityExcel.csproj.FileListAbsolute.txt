@@ -7,3 +7,5 @@ C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityExcel\bin\x86\Debug\System.Data
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityExcel\obj\x86\Debug\fUtilityExcel.csprojResolveAssemblyReference.cache
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityExcel\obj\x86\Debug\fUtilityExcel.dll
 C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityExcel\obj\x86\Debug\fUtilityExcel.pdb
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityExcel\bin\x86\Debug\Newtonsoft.Json.dll
+C:\Users\Frede\Desktop\fUtility\fUtility\fUtilityExcel\bin\x86\Debug\Newtonsoft.Json.xml
